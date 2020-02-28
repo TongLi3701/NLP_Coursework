@@ -1,42 +1,63 @@
 # Sentence-level QE Task 2020
 
-This repository provides our code for NLP CO490 coursework 2020 at Imperial College London. In this task, we used the English-Chinese corpus and achieved a Pearson score of 0.4327 as our best performance on the hidden test set. The code can run on Colab.
+This repository provides our code for NLP CO490 coursework 2020 at Imperial College London. In this task, we used the English-Chinese corpus and achieved a Pearson score of **0.4327** as our best performance on the hidden test set. The code can run on Colab. 
 
-## Table of Contents
-### 1. Data Collection 
-### 2. Data Preprocessing
-* English 
-* Chinese
+In this repository, we present eight models:
 
-### 3. Embedding Methods
-* Sentence Embedding
-    * SentenceTransformers
-    * BERT
-* Word Embedding
-    * Word2Vec and GloVe
-    * BERT
+* [SVR+Sentence_embed_sentence_transformer+raw.ipynb](https://github.com/TongLi3701/NLP_Coursework/blob/master/SVR%2BSentence_embed_sentence_transformer%2Braw.ipynb)
+* [SVR+Sentence_embed_sentence_transformer+pre_process.ipynb](https://github.com/TongLi3701/NLP_Coursework/blob/master/SVR%2BSentence_embed_sentence_transformer%2Bpre_process.ipynb)
+* [FNN+Sentence_embed_sentence_transformer+raw.ipynb](https://github.com/TongLi3701/NLP_Coursework/blob/master/FNN%2BSentence_embed_sentence_transformer%2Braw.ipynb)
+* [RNN+Word_embed_GloVe_Word2Vec+pre_process.ipynb](https://github.com/TongLi3701/NLP_Coursework/blob/master/RNN%2BWord_embed_GloVe_Word2Vec%2Bpre_process.ipynb)
+* [SVR+Sentence_embed_Bert_multilingual+raw.ipynb](https://github.com/TongLi3701/NLP_Coursework/blob/master/SVR%2BSentence_embed_Bert_multilingual%2Braw.ipynb)
+* [SVR+Sentence_embed_Bert_base+raw](https://github.com/TongLi3701/NLP_Coursework/tree/master/SVR%2BSentence_embed_Bert_base%2Braw)
+* [SVR+Sentence_embed_Bert_large+raw](https://github.com/TongLi3701/NLP_Coursework/tree/master/SVR%2BSentence_embed_Bert_large%2Braw)
+* [RNN+Word_embed_Bert+pre_process.ipynb](https://github.com/TongLi3701/NLP_Coursework/blob/master/RNN%2BWord_embed_Bert%2Bpre_process.ipynb)
 
-### 4. Models 
-* SVR
-* Feedforward Neural Network
-* Recurrent Neural Network with LSTM (Word2Vec and GloVe)
-* Recurrent Neural Network with LSTM (BERT)
+The titles describe *which model we use* + *which embedding method we choose* + *whether we use pre-processing or not*.
 
 ## Getting Started
-Upload this notebook on Colab and then upload the dataset to the default folder.
-The *Download and Import Libraries* and *Import Data* should be run at first.
+Upload one ipython notebook file to Colab and upload the files in the *dataset* folder.
 
-## Pre-processing 
-Please run this part after importing data if you want the corpus to be pre-processed. In the *Embedding* section below, you can choose to either use the raw corpus or the pre-processed corpus.
+## Directly Runnable Models
 
+* [SVR+Sentence_embed_sentence_transformer+raw.ipynb](https://github.com/TongLi3701/NLP_Coursework/blob/master/SVR%2BSentence_embed_sentence_transformer%2Braw.ipynb)
+* [SVR+Sentence_embed_sentence_transformer+pre_process.ipynb](https://github.com/TongLi3701/NLP_Coursework/blob/master/SVR%2BSentence_embed_sentence_transformer%2Bpre_process.ipynb)
+* [FNN+Sentence_embed_sentence_transformer+raw.ipynb](https://github.com/TongLi3701/NLP_Coursework/blob/master/FNN%2BSentence_embed_sentence_transformer%2Braw.ipynb)
+* [RNN+Word_embed_GloVe_Word2Vec+pre_process.ipynb](https://github.com/TongLi3701/NLP_Coursework/blob/master/RNN%2BWord_embed_GloVe_Word2Vec%2Bpre_process.ipynb)
+* [SVR+Sentence_embed_Bert_multilingual+raw.ipynb](https://github.com/TongLi3701/NLP_Coursework/blob/master/SVR%2BSentence_embed_Bert_multilingual%2Braw.ipynb)
 
-## Embedding 
-There are two types of embedding methods: word embedding and sentence embedding. You can choose one of the embedding methods before running the model.
+Simply run all the modules and we could obtain the Pearson results of the models on the validation dataset.
 
+## Models Using two BERT models
 
-## Model Selection
-* SVR: You can choose any one of the embedding methods before running the SVR model. The input of this model can be a sequence of word vectors or a sentence vector.
+* [SVR+Sentence_embed_Bert_base+raw](https://github.com/TongLi3701/NLP_Coursework/tree/master/SVR%2BSentence_embed_Bert_base%2Braw)
+* [SVR+Sentence_embed_Bert_large+raw](https://github.com/TongLi3701/NLP_Coursework/tree/master/SVR%2BSentence_embed_Bert_large%2Braw)
 
-* FNN: The input of this model should be a result of sentence embeddings. You can choose SentenceTransformers or BERT as you wish.
+	1. First we run till the *Save English results* module.
 
-* RNN with LSTM: You can choose GloVe or BERT embedding method as you wish beforehand.
+	2. Download the produced *english_train_berteb.csv*, *english_dev_berteb.csv*, *english_test_berteb.csv*. 
+
+     The files are also provided in the folders given above. **We can start from step 4 if we use the files provided.**
+
+	3. Disconnect the notebook in Colab.
+
+	4. Reconnect and upload the files in *dataset* folder and the csv files downloaded in step 2.
+
+	5. Run the modules **before the *English Model* module** and the modules **following the *Chinese Model* module**. 
+
+     Finally we obtain the Pearson score on the validation dataset, along with the *en-zh_svr.zip* file (results on the test dataset) that can be handed in to CodaLab.
+
+* [RNN+Word_embed_Bert+pre_process.ipynb](https://github.com/TongLi3701/NLP_Coursework/blob/master/RNN%2BWord_embed_Bert%2Bpre_process.ipynb)
+  
+  1. Copy the [folder with **BERT word embedding results**](https://drive.google.com/open?id=1kreg-Fim20ITvQeHmDU0jYbED8ATAKnz) into Google drive.
+  2. Start running from the module *Model: LSTM (BERT word embedding)*.
+
+## Authors
+
+* aw1019, *email*: <aoyu.wang19@imperial.ac.uk>
+
+* xc2019, *email*: <xinyuan.chen19@imperial.ac.uk>
+
+* tl1219, *email*: <tong.li19@imperial.ac.uk>
+
+  
